@@ -1,3 +1,14 @@
+const {mongoClient, ObjectId } = require ('mongodb');
+const {config } = require('../config');
+
+const USER =encodeURIComponent(config.dbuser);
+const PASSWORD = encodeURIComponent(config.dbPassword);
+const DB_NAME = config.dbName;
+
+const MONGO_URI = `${config.dbConnection}://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}?retryWrites=true&w=majority`;
+
+
+
 require('dotenv').config();
 
 const config = {
@@ -12,3 +23,6 @@ const config = {
 };
 
 module.exports = { config };
+
+
+//mongosh "mongodb+srv://cluster0.gkkud.mongodb.net/myFirstDatabase" --username damh92
